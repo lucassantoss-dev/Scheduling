@@ -10,6 +10,7 @@ import { MaterialModule } from './material-module';
 import { LoginFormComponent } from './features/login/components/login-form/login-form.component';
 import { LoginService } from './core/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PatientsModule } from './features/dashboard/components/patients/patients.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     LoginService,

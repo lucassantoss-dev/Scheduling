@@ -17,7 +17,7 @@ import { MaterialModule } from '../../material-module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class DashboardModule { }
