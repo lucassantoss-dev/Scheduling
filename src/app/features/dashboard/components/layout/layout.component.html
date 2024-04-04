@@ -1,11 +1,32 @@
 
 <mat-drawer-container autosize>
     <mat-drawer #drawer opened="true" mode="side" position="start" class="drawer">
-        <mat-toolbar><span>Sua logo</span></mat-toolbar>
+        <mat-toolbar>
+            <img class="logo" src="../../../../../assets/logo1.jpeg" alt="Logomarca">
+        </mat-toolbar>
     <mat-nav-list>
         <mat-list-item class="item-button">
             <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
         </mat-list-item>
+        <mat-list-item class="item-button">
+            <button [matMenuTriggerFor]="lvl1master" mat-button><mat-icon>playlist_add</mat-icon>Paciente</button>
+            <mat-menu #lvl1master="matMenu">
+                <button routerLink="/dashboard/patients/patient" mat-menu-item>Pacientes</button>
+                <button routerLink="/dashboard/patients/evolution" mat-menu-item>Evolução</button>
+                <button routerLink="/dashboard/patients/token" mat-menu-item>Fichas</button>
+                <button routerLink="/dashboard/patients/consent" mat-menu-item>Conscentimento</button>
+            </mat-menu>
+        </mat-list-item>
+        <mat-list-item class="item-button">
+            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>calendar_today</mat-icon>Agendamentos</button>
+        </mat-list-item>
+        <mat-list-item class="item-button">
+            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>import_contacts</mat-icon>Fichas</button>
+        </mat-list-item>
+        <mat-list-item class="item-button">
+            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>image</mat-icon>Imagens</button>
+        </mat-list-item>
+        
     </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content>

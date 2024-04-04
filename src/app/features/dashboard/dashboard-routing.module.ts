@@ -6,11 +6,15 @@ import { DashboardComponent } from './dashboard.component';
 const routes: Routes = [
 	{
 		path: '',
-    	component: DashboardComponent,
+		component: DashboardComponent,
 		children: [
 			{
 				path: 'home',
 				component: HomeComponent,
+			},
+			{
+				path: 'patients',
+				loadChildren: () => import('./components/patients/patients.module').then(m => m.PatientsModule)
 			},
 			{
 				path: '**',
@@ -22,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class DashboardRoutingModule { }
