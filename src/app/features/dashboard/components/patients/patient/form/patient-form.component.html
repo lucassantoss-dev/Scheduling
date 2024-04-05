@@ -1,1 +1,109 @@
-<p>patient-form works!</p>
+<h2 mat-dialog-title>Criar novo paciente</h2>
+<mat-dialog-content>
+    <form [formGroup]='formulario'>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="name" id="name"
+                        placeholder="Nome do paciente" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="age" id="age"
+                        placeholder="Idade do paciente" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="address" id="address"
+                        placeholder="Endereço do paciente" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                        placeholder="Data do nascimento" />
+                </div>
+            </div>
+        </div>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="education" id="education"
+                        placeholder="Escolaridade" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="profession" id="profession"
+                        placeholder="Profissão" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="marital_status" id="marital_status"
+                        placeholder="Estado civil" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="phone" id="phone"
+                        placeholder="Telefone" />
+                </div>
+            </div>
+        </div>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="emergency_contact" id="emergency_contact"
+                        placeholder="Contato de emergência" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="ethnicity" id="ethnicity"
+                        placeholder="Etnia" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <mat-radio-group formControlName="children" class="example-section">
+                        <label class="example-margin">Filhos?</label>
+                        <mat-radio-button class="example-margin1" value="yes">Sim</mat-radio-button>
+                        <mat-radio-button class="example-margin1" value="no">Não</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="number" class="form-control" formControlName="many" id="many"
+                        placeholder="Quantos?" />
+                </div>
+            </div>
+        </div>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="naturalness" id="naturalness"
+                        placeholder="Naturalidade" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <mat-radio-group formControlName="sex">
+                        <mat-radio-button class="example-margin" value="masculine">Masculino</mat-radio-button>
+                        <mat-radio-button class="example-margin" value="feminine">Feminino</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancelar</button>
+    <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()"
+        [disabled]="formulario.invalid">Criar</button>
+    <button *ngIf="typeForm" mat-button color="primary" (click)="onCreateClick()"
+        [disabled]="formulario.invalid">Editar</button>
+</mat-dialog-actions>
