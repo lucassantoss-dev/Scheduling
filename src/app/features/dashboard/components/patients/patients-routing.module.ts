@@ -4,6 +4,7 @@ import { PatientViewComponent } from './patient/view/patient-view.component';
 import { EvolutionViewComponent } from './evolution/view/evolution-view.component';
 import { TokenViewComponent } from './token/view/token-view.component';
 import { ConsentViewComponent } from './consent/view/consent-view.component';
+import { CategoryViewComponent } from './category/view/category-view.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'consent',
     component: ConsentViewComponent
+  },
+  {
+    path: 'category',
+    component: CategoryViewComponent
   }
 ];
 

@@ -37,14 +37,19 @@
                         <td mat-cell *matCellDef="let element">{{element.date}}</td>
                     </ng-container>
 
+                    <ng-container matColumnDef="address">
+                        <th mat-sort-header mat-header-cell *matHeaderCellDef>Endereço do paciente</th>
+                        <td mat-cell *matCellDef="let element">{{element.address}}</td>
+                    </ng-container>
+
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef>Ação</th>
                         <td mat-cell *matCellDef="let element">
                             <div class="action-button">
-                                <!-- <button mat-button
-                                    (click)="editCategory(element._id, element)"><mat-icon>create</mat-icon></button>
                                 <button mat-button
-                                    (click)="deleteCategory(element._id)"><mat-icon>delete_sweep</mat-icon></button> -->
+                                    (click)="editPatient(element._id, element)"><mat-icon>create</mat-icon></button>
+                                <button mat-button
+                                    (click)="deletePatient(element._id)"><mat-icon>delete_sweep</mat-icon></button>
                             </div>
                         </td>
                     </ng-container>
@@ -64,7 +69,7 @@
     <footer class="esp-top-20">
         <mat-card>
             <mat-card-content>
-                <button mat-raised-button class="button-add"><mat-icon>person_add</mat-icon>Criar Paciente</button>
+                <button mat-raised-button class="button-add" (click)="createPatient()"><mat-icon>person_add</mat-icon>Criar Paciente</button>
             </mat-card-content>
         </mat-card>
     </footer>
