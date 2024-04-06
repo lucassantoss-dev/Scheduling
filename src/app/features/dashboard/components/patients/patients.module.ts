@@ -7,12 +7,14 @@ import { PatientViewComponent } from './patient/view/patient-view.component';
 import { PatientFormComponent } from './patient/form/patient-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
+import { CategoryViewComponent } from './category/view/category-view.component';
 
 
 @NgModule({
   declarations: [
     PatientViewComponent,
-    PatientFormComponent
+    PatientFormComponent,
+    CategoryViewComponent
   ],
   imports: [
     CommonModule,

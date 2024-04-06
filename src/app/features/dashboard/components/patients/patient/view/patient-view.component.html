@@ -1,10 +1,10 @@
 <div class="spinner" *ngIf="loading">
 </div>
-<div class="category-content">
-    <div class="category-title">
+<div class="patient-content">
+    <div class="patient-title">
         <h2>Listagem de Pacientes</h2>
     </div>
-    <div class="category-search">
+    <div class="patient-search">
         <mat-card-header>
             <mat-form-field class="search-input" appearance="fill">
                 <mat-icon matPrefix>search</mat-icon>
@@ -12,7 +12,7 @@
             </mat-form-field>
         </mat-card-header>
     </div>
-    <div class="category-view">
+    <div class="patient-view">
         <mat-card *ngIf="!loading">
             <mat-card-content>
                 <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
