@@ -1,47 +1,51 @@
-
 <mat-drawer-container autosize>
     <mat-drawer #drawer opened="true" mode="side" position="start" class="drawer">
         <mat-toolbar>
             <img class="logo" src="../../../../../assets/logo1.jpeg" alt="Logomarca">
         </mat-toolbar>
-    <mat-nav-list>
-        <mat-list-item class="item-button">
-            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
-        </mat-list-item>
-        <mat-list-item class="item-button">
-            <button [matMenuTriggerFor]="lvl1master" mat-button><mat-icon>playlist_add</mat-icon>Paciente</button>
-            <mat-menu #lvl1master="matMenu">
-                <button routerLink="/dashboard/patients/patient" mat-menu-item>Pacientes</button>
-                <button routerLink="/dashboard/patients/evolution" mat-menu-item>Evolução</button>
-                <button routerLink="/dashboard/patients/token" mat-menu-item>Fichas</button>
-                <button routerLink="/dashboard/patients/consent" mat-menu-item>Conscentimento</button>
-                <button routerLink="/dashboard/patients/category" mat-menu-item>Categorias</button>
-            </mat-menu>
-        </mat-list-item>
-        <mat-list-item class="item-button">
-            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>calendar_today</mat-icon>Agendamentos</button>
-        </mat-list-item>
-        <mat-list-item class="item-button">
-            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>import_contacts</mat-icon>Fichas</button>
-        </mat-list-item>
-        <mat-list-item class="item-button">
-            <button class="redirect-button" routerLink="/dashboard/home" mat-button><mat-icon>image</mat-icon>Imagens</button>
-        </mat-list-item>
-        
-    </mat-nav-list>
+        <mat-nav-list>
+            <mat-list-item class="item-button">
+                <button class="redirect-button" routerLink="/dashboard/home"
+                    mat-button><mat-icon>dashboard</mat-icon>Dashboard</button>
+            </mat-list-item>
+            <mat-list-item class="item-button">
+                <button [matMenuTriggerFor]="lvl1master" mat-button><mat-icon>playlist_add</mat-icon>Paciente</button>
+                <mat-menu #lvl1master="matMenu">
+                    <a routerLink="/dashboard/patients/patient" mat-menu-item>Pacientes</a>
+                    <a routerLink="/dashboard/patients/evolution" mat-menu-item>Evolução</a>
+                    <a routerLink="/dashboard/patients/token" mat-menu-item>Fichas</a>
+                    <a routerLink="/dashboard/patients/consent" mat-menu-item>Conscentimento</a>
+                    <a routerLink="/dashboard/patients/category" mat-menu-item>Categorias</a>
+                </mat-menu>
+            </mat-list-item>
+            <mat-list-item class="item-button">
+                <button class="redirect-button" routerLink="/dashboard/home"
+                    mat-button><mat-icon>calendar_today</mat-icon>Agendamentos</button>
+            </mat-list-item>
+            <mat-list-item class="item-button">
+                <button class="redirect-button" routerLink="/dashboard/home"
+                    mat-button><mat-icon>import_contacts</mat-icon>Fichas</button>
+            </mat-list-item>
+            <mat-list-item class="item-button">
+                <button class="redirect-button" routerLink="/dashboard/home"
+                    mat-button><mat-icon>image</mat-icon>Imagens</button>
+            </mat-list-item>
+
+        </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar class="mat-elevation-z8 toolbar">
             <button (click)="drawer.toggle()" mat-icon-button>
                 <mat-icon>menu</mat-icon>
             </button>
-            
+
             <span class="example-spacer"></span>
             <button mat-button><mat-icon>settings</mat-icon></button>
-        
+
             <button routerLink="autocomplete" mat-button><mat-icon>person</mat-icon></button>
-            <button (click)="badgevisibility()"  mat-icon-button>
-                <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
+            <button (click)="badgevisibility()" mat-icon-button>
+                <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible"
+                    matBadgeSize="small">notifications</mat-icon>
             </button>
         </mat-toolbar>
         <div class="content" tabindex="0">
