@@ -1,12 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-token-view',
-  standalone: true,
-  imports: [],
-  templateUrl: './token-view.component.html',
-  styleUrl: './token-view.component.scss'
+	selector: 'app-token-view',
+	templateUrl: './token-view.component.html',
+	styleUrl: './token-view.component.scss'
 })
-export class TokenViewComponent {
+export class TokenViewComponent implements OnInit {
+	loading: boolean = false;
+	dataSource!: MatTableDataSource<any>;
+	displayedColumns: string[] = ["codigo", "name", "description", "action"];
+	@ViewChild(MatPaginator) paginatior !: MatPaginator;
+	@ViewChild(MatSort) sort !: MatSort;
 
+	constructor(
+		public dialog: MatDialog,
+	) {
+	}
+
+	ngOnInit(): void {
+	}
+
+	Filterchange(data: Event): void {
+		const value = (data.target as HTMLInputElement).value;
+		this.dataSource.filter = value;
+	}
+
+	editToken(id: string, data: string): void {
+
+	}
+
+	deleteToken(id: string): void {
+		
+	}
 }

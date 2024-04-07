@@ -8,13 +8,15 @@ import { PatientFormComponent } from './patient/form/patient-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
 import { CategoryViewComponent } from './category/view/category-view.component';
+import { TokenViewComponent } from './token/view/token-view.component';
 
 
 @NgModule({
   declarations: [
     PatientViewComponent,
     PatientFormComponent,
-    CategoryViewComponent
+    CategoryViewComponent,
+    TokenViewComponent
   ],
   imports: [
     CommonModule,
