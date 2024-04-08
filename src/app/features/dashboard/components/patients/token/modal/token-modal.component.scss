@@ -1,0 +1,25 @@
+.select-container select {
+    cursor: pointer;
+}
+
+.token-form {
+    margin-top: 30px;
+}
+
+.title {
+    line-height: 0;
+}
+
+.radio-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+.radio-button.selected {
+    background-color: #3B93C8;
+    color: white;
+}

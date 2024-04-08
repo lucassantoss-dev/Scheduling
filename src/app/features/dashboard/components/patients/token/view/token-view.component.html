@@ -44,7 +44,6 @@
                         </td>
                     </ng-container>
 
-
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
@@ -59,7 +58,7 @@
     <footer class="esp-top-20">
         <mat-card>
             <mat-card-content>
-                <button mat-raised-button class="button-add"><mat-icon>person_add</mat-icon>Criar Atendimento</button>
+                <button mat-raised-button class="button-add" (click)="createToken()"><mat-icon>person_add</mat-icon>Criar Atendimento</button>
             </mat-card-content>
         </mat-card>
     </footer>

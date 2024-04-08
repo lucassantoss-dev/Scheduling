@@ -1,0 +1,24 @@
+.card {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.esp-top-20 {
+    position: fixed;
+    bottom: 0;
+    right: 2px;
+    width: 100%;
+    text-align: end;
+}
+
+.button-add {
+    background-color: #3B93C8;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+.patient-form {
+    margin-top: 20px;
+}

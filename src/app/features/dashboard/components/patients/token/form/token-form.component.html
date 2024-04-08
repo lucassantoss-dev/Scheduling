@@ -1,1 +1,159 @@
-<p>token-form works!</p>
+<div class="token-form-container">
+    <div class="token-title">
+        <h3>Novo atendimento</h3>
+    </div>
+    <div class="token-content">
+        <mat-card class="card" (click)="togglePatient()">
+            <mat-card-title><h3>Dados do paciente</h3></mat-card-title>
+            <mat-card-content *ngIf="patientDataExpanded">
+                <form  [formGroup]='formulario'>
+                    <div class="row patient-form">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="name" id="name"
+                                    placeholder="Nome do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" formControlName="age" id="age"
+                                    placeholder="Idade do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Endereço do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                                    placeholder="Data do nascimento" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row patient-form">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="name" id="name"
+                                    placeholder="Nome do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" formControlName="age" id="age"
+                                    placeholder="Idade do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Endereço do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                                    placeholder="Data do nascimento" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row patient-form">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="name" id="name"
+                                    placeholder="Nome do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" formControlName="age" id="age"
+                                    placeholder="Idade do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Endereço do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                                    placeholder="Data do nascimento" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row patient-form">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="name" id="name"
+                                    placeholder="Nome do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" formControlName="age" id="age"
+                                    placeholder="Idade do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Endereço do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                                    placeholder="Data do nascimento" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card" (click)="toggleToken()" style="margin-top: 20px;">
+            <mat-card-title><h3>Dados do atendimento</h3></mat-card-title>
+            <mat-card-content *ngIf="tokenDataExpanded">
+                <form  [formGroup]='formulario'>
+                    <div class="row patient-form">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="name" id="name"
+                                    placeholder="Nome do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="number" class="form-control" formControlName="age" id="age"
+                                    placeholder="Idade do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="address" id="address"
+                                    placeholder="Endereço do paciente" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                                    placeholder="Data do nascimento" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <footer class="esp-top-20">
+        <mat-card>
+            <mat-card-content>
+                <button mat-raised-button class="button-add"><mat-icon>person_add</mat-icon>Criar Atendimento</button>
+            </mat-card-content>
+        </mat-card>
+    </footer>
+</div>
