@@ -5,6 +5,7 @@ import { EvolutionViewComponent } from './evolution/view/evolution-view.componen
 import { TokenViewComponent } from './token/view/token-view.component';
 import { ConsentViewComponent } from './consent/view/consent-view.component';
 import { CategoryViewComponent } from './category/view/category-view.component';
+import { TokenFormComponent } from './token/form/token-form.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'consent',
     component: ConsentViewComponent
+  },
+  {
+    path: 'create-token',
+    component: TokenFormComponent
   },
   {
     path: 'category',

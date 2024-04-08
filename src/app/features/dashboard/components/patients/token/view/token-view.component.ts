@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { TokenModalComponent } from '../modal/token-modal.component';
 
 @Component({
 	selector: 'app-token-view',
@@ -18,6 +20,7 @@ export class TokenViewComponent implements OnInit {
 
 	constructor(
 		public dialog: MatDialog,
+		private router: Router
 	) {
 	}
 
@@ -27,6 +30,18 @@ export class TokenViewComponent implements OnInit {
 	Filterchange(data: Event): void {
 		const value = (data.target as HTMLInputElement).value;
 		this.dataSource.filter = value;
+	}
+
+	createToken(): void {
+		console.log('entrou aqui?')
+		// this.router.navigate(['/dashboard/patients/create-token'])
+		const dialogRef = this.dialog.open(TokenModalComponent, {
+			width: '1200px',
+			height: '350px'
+		});
+
+		dialogRef.afterClosed().subscribe(result => {
+		});
 	}
 
 	editToken(id: string, data: string): void {

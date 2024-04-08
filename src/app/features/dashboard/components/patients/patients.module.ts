@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../shared/shared.module';
 import { CategoryViewComponent } from './category/view/category-view.component';
 import { TokenViewComponent } from './token/view/token-view.component';
+import { TokenFormComponent } from './token/form/token-form.component';
+import { TokenModalComponent } from './token/modal/token-modal.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { TokenViewComponent } from './token/view/token-view.component';
     PatientViewComponent,
     PatientFormComponent,
     CategoryViewComponent,
-    TokenViewComponent
+    TokenViewComponent,
+    TokenFormComponent,
+    TokenModalComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Começar avaliação</h2>
+<mat-dialog-content>
+    <form [formGroup]='formulario'>
+        <div class="row token-form">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="select-container">
+                        <h3 class="title">Especialista: *</h3>
+                        <select class="form-control" formControlName="name" id="name">
+                            <option value="">Selecione um(a) especialista</option>
+                            <!-- <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option> -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="select-container">
+                        <h3 class="title">Cliente: *</h3>
+                        <select class="form-control" formControlName="name" id="name">
+                            <option value="">Selecione um(a) cliente</option>
+                            <!-- <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option> -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row token-form">
+            <h3 class="title">Requisição médica: *</h3>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button type="button" class="radio-button"
+                    [ngClass]="{ 'selected': isMedicalRequirementSelected('com') }"
+                    (click)="selectMedicalRequirement('com')">Com requisição médica</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button type="button" class="radio-button"
+                    [ngClass]="{ 'selected': isMedicalRequirementSelected('sem') }"
+                    (click)="selectMedicalRequirement('sem')">Sem requisição médica</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancelar</button>
+    <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()"
+        [disabled]="formulario.invalid">Criar</button>
+    <button *ngIf="typeForm" mat-button color="primary" (click)="onCreateClick()"
+        [disabled]="formulario.invalid">Editar</button>
+</mat-dialog-actions>
