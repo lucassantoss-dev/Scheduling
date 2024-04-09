@@ -11,6 +11,7 @@ import { CategoryViewComponent } from './category/view/category-view.component';
 import { TokenViewComponent } from './token/view/token-view.component';
 import { TokenFormComponent } from './token/form/token-form.component';
 import { TokenModalComponent } from './token/modal/token-modal.component';
+import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TokenModalComponent } from './token/modal/token-modal.component';
     CategoryViewComponent,
     TokenViewComponent,
     TokenFormComponent,
-    TokenModalComponent
+    TokenModalComponent,
+    MotorAssessmentFormComponent
   ],
   imports: [
     CommonModule,
