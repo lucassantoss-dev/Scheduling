@@ -1,53 +1,94 @@
 <h2 mat-dialog-title>Começar avaliação</h2>
 <mat-dialog-content>
-    <form [formGroup]='formulario'>
+    <div class="first-screen" *ngIf="showFirstScreen">
+        <form [formGroup]='formulario'>
+            <div class="row token-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="select-container">
+                            <h3 class="title">Especialista: *</h3>
+                            <select class="form-control" formControlName="professional" id="professional">
+                                <option value="">Selecione um(a) especialista</option>
+                                <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="select-container">
+                            <h3 class="title">Cliente: *</h3>
+                            <select class="form-control" formControlName="client" id="client">
+                                <option value="">Selecione um(a) cliente</option>
+                                <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row token-form">
+                <h3 class="title">Requisição médica: *</h3>
+                <div class="col-md-6">
+                    <div class="form-group buttons">
+                        <button type="button" class="radio-button"
+                            [ngClass]="{ 'selected': isMedicalRequirementSelected('com') }"
+                            (click)="selectMedicalRequirement('com')">Com requisição médica</button>
+                    </div>
+                    <div class="button-attachment" *ngIf="showButton">
+                        <span class="custom-file-upload" (click)="triggerFileInput()">Anexar requisição</span>
+                        <input id="file-upload" type="file" (change)="onFileSelected($event)"
+                            accept=".jpg, .jpeg, .png, .pdf" style="display: none;" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="button" class="radio-button"
+                            [ngClass]="{ 'selected': isMedicalRequirementSelected('sem') }"
+                            (click)="selectMedicalRequirement('sem')">Sem requisição médica</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="second-screen" *ngIf="!showFirstScreen">
         <div class="row token-form">
             <div class="col-md-6">
                 <div class="form-group">
-                    <div class="select-container">
-                        <h3 class="title">Especialista: *</h3>
-                        <select class="form-control" formControlName="name" id="name">
-                            <option value="">Selecione um(a) especialista</option>
-                            <!-- <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option> -->
-                        </select>
-                    </div>
+                    <button type="button" class="radio-button"
+                        [ngClass]="{ 'selected': selectedPlugType('motor-assesment') }"
+                        (click)="selectPlugType('motor-assesment')">Ficha de avaliação motora</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <div class="select-container">
-                        <h3 class="title">Cliente: *</h3>
-                        <select class="form-control" formControlName="name" id="name">
-                            <option value="">Selecione um(a) cliente</option>
-                            <!-- <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option> -->
-                        </select>
-                    </div>
+                    <button type="button" class="radio-button" [ngClass]="{ 'selected': selectedPlugType('sem') }"
+                        (click)="selectPlugType('sem')">Ficha de avaliação cardiopulmonar</button>
                 </div>
             </div>
         </div>
         <div class="row token-form">
-            <h3 class="title">Requisição médica: *</h3>
             <div class="col-md-6">
                 <div class="form-group">
-                    <button type="button" class="radio-button"
-                    [ngClass]="{ 'selected': isMedicalRequirementSelected('com') }"
-                    (click)="selectMedicalRequirement('com')">Com requisição médica</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <button type="button" class="radio-button"
-                    [ngClass]="{ 'selected': isMedicalRequirementSelected('sem') }"
-                    (click)="selectMedicalRequirement('sem')">Sem requisição médica</button>
+                    <button type="button" class="radio-button" [ngClass]="{ 'selected': selectedPlugType('sem1') }"
+                        (click)="selectPlugType('sem1')">Rolandmorris</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button (click)="onCancelClick()">Cancelar</button>
-    <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()"
-        [disabled]="formulario.invalid">Criar</button>
+    <div *ngIf="showFirstScreen">
+        <button mat-button (click)="nextStep()">Próximo</button>
+    </div>
+
+    <div *ngIf="!showFirstScreen">
+        <button mat-button (click)="backStep()">Voltar</button>
+    </div>
+    <div *ngIf="!showFirstScreen">
+        <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()">Preencher</button>
+    </div>
     <button *ngIf="typeForm" mat-button color="primary" (click)="onCreateClick()"
         [disabled]="formulario.invalid">Editar</button>
 </mat-dialog-actions>

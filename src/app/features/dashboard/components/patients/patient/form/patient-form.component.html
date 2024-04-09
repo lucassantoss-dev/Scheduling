@@ -22,10 +22,35 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
-                        placeholder="Data do nascimento" />
+                    <input type="number" class="form-control" formControlName="address_number" id="address_number"
+                        placeholder="Número" />
                 </div>
             </div>
+        </div>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="city" id="city" placeholder="Cidade" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="province" id="province"
+                        placeholder="Bairro" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="uf" id="uf" placeholder="UF" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="postal_code" id="postal_code"
+                        placeholder="CEP" />
+                </div>
+            </div>
+
         </div>
         <div class="row patient-form">
             <div class="col-md-3">
@@ -36,7 +61,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="number" class="form-control" formControlName="profession" id="profession"
+                    <input type="text" class="form-control" formControlName="profession" id="profession"
                         placeholder="Profissão" />
                 </div>
             </div>
@@ -48,7 +73,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="number" class="form-control" formControlName="phone" id="phone"
+                    <input type="text" class="form-control" formControlName="phone_number" id="phone_number"
                         placeholder="Telefone" />
                 </div>
             </div>
@@ -56,7 +81,7 @@
         <div class="row patient-form">
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="number" class="form-control" formControlName="emergency_contact" id="emergency_contact"
+                    <input type="text" class="form-control" formControlName="emergency_contact" id="emergency_contact"
                         placeholder="Contato de emergência" />
                 </div>
             </div>
@@ -68,7 +93,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <mat-radio-group formControlName="children" class="example-section">
+                    <mat-radio-group class="example-section">
                         <label class="example-margin">Filhos?</label>
                         <mat-radio-button class="example-margin1" value="yes">Sim</mat-radio-button>
                         <mat-radio-button class="example-margin1" value="no">Não</mat-radio-button>
@@ -77,8 +102,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="number" class="form-control" formControlName="many" id="many"
-                        placeholder="Quantos?" />
+                    <input type="number" class="form-control" formControlName="children" id="children" placeholder="Quantos?" />
                 </div>
             </div>
         </div>
@@ -95,6 +119,31 @@
                         <mat-radio-button class="example-margin" value="masculine">Masculino</mat-radio-button>
                         <mat-radio-button class="example-margin" value="feminine">Feminino</mat-radio-button>
                     </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" id="email" placeholder="E-mail" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="date_of_birth" id="date_of_birth"
+                        placeholder="Data do nascimento" />
+                </div>
+            </div>
+        </div>
+        <div class="row patient-form">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="height" id="height"
+                        placeholder="Altura" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="weight" id="weight"
+                        placeholder="Peso" />
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { TokenViewComponent } from './token/view/token-view.component';
 import { ConsentViewComponent } from './consent/view/consent-view.component';
 import { CategoryViewComponent } from './category/view/category-view.component';
 import { TokenFormComponent } from './token/form/token-form.component';
+import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'create-token',
     component: TokenFormComponent
+  },
+  {
+    path: 'create-token/motor-assesment',
+    component: MotorAssessmentFormComponent
   },
   {
     path: 'category',

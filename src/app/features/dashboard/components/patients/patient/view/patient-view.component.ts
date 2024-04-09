@@ -17,7 +17,7 @@ import { ConfirmationModalComponent } from '../../../../../../shared/modal/confi
 export class PatientViewComponent implements OnInit {
   	loading: boolean = false;
 	dataSource!: MatTableDataSource<PatientInterface>;
-	displayedColumns: string[] = ["name", "age", "service", "date", "address", "action"];
+	displayedColumns: string[] = ["name", "age", "email", "date", "address", "action"];
 	@ViewChild(MatPaginator) paginatior !: MatPaginator;
 	@ViewChild(MatSort) sort !: MatSort;
 
@@ -52,7 +52,7 @@ export class PatientViewComponent implements OnInit {
 	createPatient(): void {
 		const dialogRef = this.dialog.open(PatientFormComponent, {
 			width: '1200px',
-			height: '450px'
+			height: '600px'
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
@@ -63,7 +63,7 @@ export class PatientViewComponent implements OnInit {
 	editPatient(id: string, data: PatientInterface): void {
 		const dialogRef = this.dialog.open(PatientFormComponent, {
 			width: '1200px',
-			height: '450px',
+			height: '600px',
 			data: { id: id, patient: data },
 		});
 
@@ -80,6 +80,13 @@ export class PatientViewComponent implements OnInit {
 
 		dialogRef.afterClosed().subscribe(result => {
 			if (result) {
+				this.patientService.deletePatient(id).subscribe({
+					next: () => {
+						this.getAllPatients();
+					}, error: (err: Error) => {
+						console.error('error', err.message);
+					}
+				})
 			}
 		});
 	}

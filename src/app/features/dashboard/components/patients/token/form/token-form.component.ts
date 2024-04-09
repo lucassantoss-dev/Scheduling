@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from '../../../../../../core/patient.service';
 
 @Component({
 	selector: 'app-token-form',
@@ -7,8 +8,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 	styleUrl: './token-form.component.scss'
 })
 export class TokenFormComponent implements OnInit {
-	patientDataExpanded: boolean = true;
-	tokenDataExpanded: boolean = true;
+	public patientDataExpanded: boolean = true;
+	public tokenDataExpanded: boolean = true;
 	public formulario!: FormGroup;
 
 	constructor(
