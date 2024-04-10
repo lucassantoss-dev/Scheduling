@@ -104,7 +104,7 @@ export class TokenModalComponent implements OnInit {
 	private criarFormulario(): void {
 		this.formulario = this.formBuilder.group({
 			professional: new FormControl({ value: '', disabled: false }, [Validators.required]),
-			client: new FormControl({ disabled: false }, [Validators.required]),
+			client: new FormControl({ value: '', disabled: false }, [Validators.required]),
 			medicalRequirement: new FormControl({ value: '', disabled: false }, [Validators.required]),
 			plugType: new FormControl({ value: '', disabled: false }, [Validators.required]),
 		});

@@ -2,13 +2,13 @@
     <div class="cardiopulmonary-assesment-title">
         <h3>Preenchimento de ficha de avaliação motora: </h3>
     </div>
-    <div class="cardiopulmonary-assesment-content" style="overflow: hidden;">
-        <form [formGroup]='formulario'>
+    <div class="cardiopulmonary-assesment-content" style="overflow: hidden;" *ngIf="firstScreen">
+        <form [formGroup]='formulario' style="margin-bottom: 80px;">
             <div class="row content-vital-data">
                 <span class="vital-data">Dados vitais: </span>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <span class="cardiopulmonar-span">PA: </span>
+                        <span class="cardiopulmonary-span">PA: </span>
                         <div class="pa">
                             <input type="text" class="form-control" formControlName="pa" id="pa" />
                             <span>mmHg</span>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <span class="cardiopulmonar-span">FC: </span>
+                        <span class="cardiopulmonary-span">FC: </span>
                         <div class="pa">
                             <input type="text" class="form-control" formControlName="fc" id="fc" />
                             <span>bpm</span>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <span class="cardiopulmonar-span">f: </span>
+                        <span class="cardiopulmonary-span">f: </span>
                         <div class="pa">
                             <input type="text" class="form-control" formControlName="f" id="f" />
                             <span>irpm</span>
@@ -50,32 +50,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="cardiopulmonary-span">IMC(peso/alt²): </span>
                     <div class="pa">
-                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                        <input type="text" class="form-control" formControlName="imc" id="imc" />
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="cardiopulmonary-span">Relação Cintura/quadril(peso/alt²): </span>
-                    <div class="pa">
-                        <input type="text" class="form-control" formControlName="weight" id="weight" />
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="cardiopulmonary-span">Sat O2: </span>
                     <div class="pa">
-                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                        <input type="text" class="form-control" formControlName="sat" id="sat" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="hydration">
                             <label class="radio-label">Hidratação: </label>
-                            <mat-radio-button class="radio-button" value="yes">Adequada</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Inadequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="proper">Adequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="inadequate">Inadequada</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -83,10 +77,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="cyanosis">
                             <label class="radio-label">Cianose: </label>
-                            <mat-radio-button class="radio-button" value="yes">Presente</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Ausente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="present">Presente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="absent">Ausente</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -94,10 +88,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="perfusion">
                             <label class="radio-label">Perfusão capilar periférica: </label>
-                            <mat-radio-button class="radio-button" value="yes">Adequada</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Inadequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="proper">Adequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="inadequate">Inadequada</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -105,10 +99,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="jaundice">
                             <label class="radio-label">Icterícia: </label>
-                            <mat-radio-button class="radio-button" value="yes">Presente</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Ausente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="present">Presente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="absent">Ausente</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -116,11 +110,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="entry_way">
                             <label class="radio-label">Via de entrada de ar: </label>
-                            <mat-radio-button class="radio-button" value="yes">Nasal</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Oral</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Mista</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="nasal">Nasal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="oral">Oral</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="mixed">Mista</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -128,11 +122,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="breathing_pattern">
                             <label class="radio-label">Padrão respiratório: </label>
-                            <mat-radio-button class="radio-button" value="yes">Apical ou torácico</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Abdominal</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Tóraco-abdominal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="apical">Apical ou torácico</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="abdominal">Abdominal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="thoraco-abdominal">Tóraco-abdominal</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -140,11 +134,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <mat-radio-group class="radio">
+                        <mat-radio-group class="radio" formControlName="breathing_range">
                             <label class="radio-label">Amplitude respiratória: </label>
-                            <mat-radio-button class="radio-button" value="yes">Normal</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Superficial</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="no">Profunda</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="normal">Normal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="superficial">Superficial</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="deep">Profunda</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -153,7 +147,64 @@
                 <div class="col-md-6">
                     <span class="cardiopulmonary-span">Relação inspiração/expiração: </span>
                     <div class="pa">
-                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                        <input type="text" class="form-control" formControlName="inspiration_exhalation" id="inspiration_exhalation" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="second-screen" style="overflow: hidden;" *ngIf="!firstScreen">
+        <form [formGroup]='formulario' style="margin-bottom: 80px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-radio-group class="radio" formControlName="breathing_rhythm">
+                            <label class="radio-label">Ritmo respiratório: </label>
+                            <mat-radio-button class="radio-button" value="regular">Regular</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="irregular">Irregular</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio" formControlName="cough">
+                            <label class="radio-label">Tosse: </label>
+                            <mat-radio-button class="radio-button" value="effective">Eficaz</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="ineffective">Ineficaz</mat-radio-button>
+
+                        </mat-radio-group>
+                        <mat-radio-group class="radio" formControlName="cough_second">
+                            <mat-radio-button class="radio-button" value="productive">Produtiva</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="unproductive">Improdutiva</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <span>Aspecto da secreção: </span>
+                        <textarea class="form-control" formControlName="secretion" id="secretion"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio" formControlNama="lung_auscultation">
+                            <label class="radio-label">Ausculta pulmonar: </label>
+                            <mat-radio-button class="radio-button" value="mvf">MVF s/RA</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <span>OBS: </span>
+                        <textarea class="form-control" formControlName="obs" id="obs"></textarea>
                     </div>
                 </div>
             </div>
@@ -162,7 +213,17 @@
     <footer class="esp-top-20">
         <mat-card>
             <mat-card-content>
-                <button mat-raised-button class="button-add"><mat-icon>person_add</mat-icon>Criar avaliação</button>
+                <div class="multi-button">
+                    <div *ngIf="firstScreen">
+                        <button mat-raised-button class="button-next" (click)="nextStep()">Próximo</button>
+                    </div>
+                    <div *ngIf="!firstScreen">
+                        <button mat-button (click)="backStep()" class="button-back">Voltar</button>
+                    </div>
+                    <div *ngIf="!firstScreen">
+                        <button mat-raised-button class="button-add" (click)="createAssessment()"><mat-icon>person_add</mat-icon>Criar avaliação</button>
+                    </div>
+                </div>
             </mat-card-content>
         </mat-card>
     </footer>

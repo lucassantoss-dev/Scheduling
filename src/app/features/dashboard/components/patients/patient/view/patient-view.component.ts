@@ -8,6 +8,7 @@ import { PatientApiInterface } from '../../../../../../domain/model/patient/pati
 import { PatientInterface } from '../../../../../../domain/model/patient/patient-interface';
 import { PatientFormComponent } from '../form/patient-form.component';
 import { ConfirmationModalComponent } from '../../../../../../shared/modal/confirmation-modal/confirmation-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-view',
@@ -23,7 +24,8 @@ export class PatientViewComponent implements OnInit {
 
 	constructor(
 		public dialog: MatDialog,
-		private patientService: PatientService
+		private patientService: PatientService,
+		private router: Router
 	) {
 	}
 
@@ -70,6 +72,11 @@ export class PatientViewComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(result => {
 			this.getAllPatients();
 		});
+	}
+
+	detailPatient(id: string): void {
+		const url = `/dashboard/patients/patient/detail/${id}`;
+		this.router.navigate([url]);
 	}
 
 	deletePatient(id: string): void {

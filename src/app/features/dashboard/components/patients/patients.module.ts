@@ -13,6 +13,7 @@ import { TokenFormComponent } from './token/form/token-form.component';
 import { TokenModalComponent } from './token/modal/token-modal.component';
 import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form/motor-assessment-form.component';
 import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
+import { PatientDetailComponent } from './patient/detail/patient-detail.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardi
     TokenFormComponent,
     TokenModalComponent,
     MotorAssessmentFormComponent,
-    CardiopulmonaryAssessmentFormComponent
+    CardiopulmonaryAssessmentFormComponent,
+    PatientDetailComponent
   ],
   imports: [
     CommonModule,
