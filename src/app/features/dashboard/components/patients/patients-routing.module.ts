@@ -6,7 +6,8 @@ import { TokenViewComponent } from './token/view/token-view.component';
 import { ConsentViewComponent } from './consent/view/consent-view.component';
 import { CategoryViewComponent } from './category/view/category-view.component';
 import { TokenFormComponent } from './token/form/token-form.component';
-import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form.component';
+import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form/motor-assessment-form.component';
+import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'create-token/motor-assesment',
     component: MotorAssessmentFormComponent
+  },
+  {
+    path: 'create-token/cardiopulmonary-assessment',
+    component: CardiopulmonaryAssessmentFormComponent
   },
   {
     path: 'category',
