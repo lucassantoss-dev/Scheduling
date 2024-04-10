@@ -1,0 +1,169 @@
+<div class="cardiopulmonary-assesment-container">
+    <div class="cardiopulmonary-assesment-title">
+        <h3>Preenchimento de ficha de avaliação motora: </h3>
+    </div>
+    <div class="cardiopulmonary-assesment-content" style="overflow: hidden;">
+        <form [formGroup]='formulario'>
+            <div class="row content-vital-data">
+                <span class="vital-data">Dados vitais: </span>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span class="cardiopulmonar-span">PA: </span>
+                        <div class="pa">
+                            <input type="text" class="form-control" formControlName="pa" id="pa" />
+                            <span>mmHg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span class="cardiopulmonar-span">FC: </span>
+                        <div class="pa">
+                            <input type="text" class="form-control" formControlName="fc" id="fc" />
+                            <span>bpm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span class="cardiopulmonar-span">f: </span>
+                        <div class="pa">
+                            <input type="text" class="form-control" formControlName="f" id="f" />
+                            <span>irpm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="clinical-parameters">Parâmetros Clínicos: </span>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="cardiopulmonary-span">Peso(Kg): </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <span class="cardiopulmonary-span">Altura(m): </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="height" id="height" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="cardiopulmonary-span">IMC(peso/alt²): </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="cardiopulmonary-span">Relação Cintura/quadril(peso/alt²): </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="cardiopulmonary-span">Sat O2: </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Hidratação: </label>
+                            <mat-radio-button class="radio-button" value="yes">Adequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Inadequada</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Cianose: </label>
+                            <mat-radio-button class="radio-button" value="yes">Presente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Ausente</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Perfusão capilar periférica: </label>
+                            <mat-radio-button class="radio-button" value="yes">Adequada</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Inadequada</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Icterícia: </label>
+                            <mat-radio-button class="radio-button" value="yes">Presente</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Ausente</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Via de entrada de ar: </label>
+                            <mat-radio-button class="radio-button" value="yes">Nasal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Oral</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Mista</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Padrão respiratório: </label>
+                            <mat-radio-button class="radio-button" value="yes">Apical ou torácico</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Abdominal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Tóraco-abdominal</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-radio-group class="radio">
+                            <label class="radio-label">Amplitude respiratória: </label>
+                            <mat-radio-button class="radio-button" value="yes">Normal</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Superficial</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="no">Profunda</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="cardiopulmonary-span">Relação inspiração/expiração: </span>
+                    <div class="pa">
+                        <input type="text" class="form-control" formControlName="weight" id="weight" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer class="esp-top-20">
+        <mat-card>
+            <mat-card-content>
+                <button mat-raised-button class="button-add"><mat-icon>person_add</mat-icon>Criar avaliação</button>
+            </mat-card-content>
+        </mat-card>
+    </footer>
+</div>

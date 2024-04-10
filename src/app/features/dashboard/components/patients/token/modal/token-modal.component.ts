@@ -76,6 +76,9 @@ export class TokenModalComponent implements OnInit {
 		if (value === 'com') {
 			this.showButton = true;
 		}
+		if (value === 'sem') {
+			this.showButton = false;
+		}
 	}
 
 	isMedicalRequirementSelected(value: string): boolean {

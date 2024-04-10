@@ -1,0 +1,80 @@
+.cardiopulmonary-assesment-container {
+    padding: 5px;
+}
+
+.cardiopulmonary-assesment-title h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+.form-group span {
+    font-size: 14PX;
+    margin-left: 4px;
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.esp-top-20 {
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    right: 2px;
+    width: 100%;
+    text-align: end;
+}
+
+.button-add {
+    background-color: #3B93C8;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.pa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vital-data {
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-left: 2px;
+    font-weight: bold;
+}
+
+.content-vital-data {
+    margin-bottom: 20px;
+}
+
+.clinical-parameters {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 2px;
+    font-weight: bold;
+}
+
+.cardiopulmonar-span {
+    font-weight: bold;
+}
+
+.radio-label {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.radio {
+    margin-left: 3px;
+}
+
+.cardiopulmonary-span {
+    margin-left: 3px;
+}

@@ -11,7 +11,8 @@ import { CategoryViewComponent } from './category/view/category-view.component';
 import { TokenViewComponent } from './token/view/token-view.component';
 import { TokenFormComponent } from './token/form/token-form.component';
 import { TokenModalComponent } from './token/modal/token-modal.component';
-import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form.component';
+import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form/motor-assessment-form.component';
+import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MotorAssessmentFormComponent } from './token/components/motor-assessmen
     TokenViewComponent,
     TokenFormComponent,
     TokenModalComponent,
-    MotorAssessmentFormComponent
+    MotorAssessmentFormComponent,
+    CardiopulmonaryAssessmentFormComponent
   ],
   imports: [
     CommonModule,
