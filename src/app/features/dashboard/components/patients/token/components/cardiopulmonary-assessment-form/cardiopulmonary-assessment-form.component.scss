@@ -28,7 +28,7 @@
 }
 
 .button-add {
-    background-color: #3B93C8;
+    background-color: #8B4513;
     color: aliceblue;
     font-size: 16px;
 }
@@ -77,4 +77,74 @@
 
 .cardiopulmonary-span {
     margin-left: 3px;
+}
+
+.multi-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-next {
+    background-color: #8B4513;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+.button-back {
+    background-color: rgb(143, 125, 125);
+    color: aliceblue;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.multi-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cardiopulmonary-assesment-container {
+    padding: 5px;
+
+    .cardiopulmonary-assesment-title {
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    .footer {
+        margin-top: auto; /* Empurra o footer para a parte inferior */
+    }
+
+    .multi-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 10px;
+
+        button {
+            margin-right: 10px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .cardiopulmonary-assesment-content,
+    .second-screen {
+        padding: 0 10px; /* Adiciona um padding lateral para evitar que os elementos se estiquem demais */
+    }
+}
+
+@media (max-width: 576px) {
+    .multi-button {
+        flex-direction: column; /* Altera a direção dos botões para empilhados verticalmente */
+        align-items: flex-start; /* Alinha os botões à esquerda */
+        button {
+            margin-right: 0;
+            margin-bottom: 10px; /* Adiciona um espaçamento entre os botões */
+        }
+    }
 }
