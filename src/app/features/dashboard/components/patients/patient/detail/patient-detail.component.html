@@ -1,1 +1,58 @@
-<p>patient-detail works!</p>
+<div class="spinner" *ngIf="loading"></div>
+<div class="patient-detail-container" *ngIf="!loading">
+    <div class="patient-detail-title">
+        <h3>Detalhes do(a) paciente</h3>
+    </div>
+    <div class="patient-detail-content">
+        <div class="row">
+            <div class="col-md-3">
+                <mat-card>
+                    <mat-card-content class="card-content">
+                        <div class="card-title">
+                            <span class="card-title-patient">Descrição do paciente</span>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="card-title">
+                            <span class="card-title-name">{{patient.name}}</span>
+                        </div>
+                        <div class="card-title">
+                            <span class="patient-info">Idade: </span>
+                            <span>{{patient.age}} Anos</span>
+                        </div>
+                        <div class="card-title">
+                            <span class="patient-info">Altura: </span>
+                            <span>{{patient.height}} cm de altura</span>
+                        </div>
+                        <div class="card-title">
+                            <span class="patient-info">Peso: </span>
+                            <span>{{patient.weight}} Kg</span>
+                        </div>
+                        <div class="card-title">
+                            <span class="patient-info">Endereço: </span>
+                            <span>{{patient.address}}, {{patient.address_number}}, {{patient.province}}</span>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-6">
+                <mat-card>
+                    <mat-card-content class="card-content">
+                        <span class="card-title-qtd">Gráfico de evolução</span>
+                        <mat-divider></mat-divider>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-3">
+                <mat-card>
+                    <mat-card-content class="card-content">
+                        <div class="card-title-content">
+                            <span class="card-title-qtd">Quantidade de atendimentos realizados: </span>
+                            <mat-divider></mat-divider>
+                            <span class="number-of-calls">3</span>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
