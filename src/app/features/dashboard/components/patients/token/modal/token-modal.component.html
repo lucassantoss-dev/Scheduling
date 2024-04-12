@@ -7,27 +7,41 @@
                     <div class="form-group">
                         <div class="select-container">
                             <h3 class="title">Especialista: *</h3>
-                            <select class="form-control" formControlName="professional" id="professional">
+                            <select class="form-control" formControlName="professional" id="professional"
+                                [ngClass]="{ 'invalid-input': !formulario.controls['professional'].valid && formulario.controls['professional'].touched }">
                                 <option value="">Selecione um(a) especialista</option>
                                 <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option>
                             </select>
                         </div>
+                    </div>
+                    <div *ngIf="!formulario.controls['professional'].valid && formulario.controls['professional'].touched"
+                        class="error-message">
+                        Especialista é obrigatório
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class="select-container">
                             <h3 class="title">Cliente: *</h3>
-                            <select class="form-control" formControlName="client" id="client">
+                            <select class="form-control" formControlName="client" id="client"
+                                [ngClass]="{ 'invalid-input': !formulario.controls['professional'].valid && formulario.controls['professional'].touched }">
                                 <option value="">Selecione um(a) cliente</option>
                                 <option *ngFor="let people of persons" [value]="people._id">{{ people.name }}</option>
                             </select>
                         </div>
                     </div>
+                    <div *ngIf="!formulario.controls['client'].valid && formulario.controls['client'].touched"
+                        class="error-message">
+                        Cliente é obrigatório
+                    </div>
                 </div>
             </div>
             <div class="row token-form">
                 <h3 class="title">Requisição médica: *</h3>
+                <div *ngIf="!formulario.controls['medicalRequirement'].valid && formulario.controls['medicalRequirement'].touched"
+                    class="error-message">
+                    Requisição médica é obrigatória
+                </div>
                 <div class="col-md-6">
                     <div class="form-group buttons">
                         <button type="button" class="radio-button"
@@ -52,29 +66,38 @@
     </div>
 
     <div class="second-screen" *ngIf="!showFirstScreen">
-        <div class="row token-form">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <button type="button" class="radio-button"
-                        [ngClass]="{ 'selected': selectedPlugType('motor-assesment') }"
-                        (click)="selectPlugType('motor-assesment')">Ficha de avaliação motora</button>
+        <form [formGroup]='formulario'>
+            <div *ngIf="!formulario.controls['plugType'].valid && formulario.controls['plugType'].touched"
+                class="error-message">
+                É obrigatório escolher uma ficha
+            </div>
+            <div class="row token-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="button" class="radio-button"
+                            [ngClass]="{ 'selected': selectedPlugType('motor-assesment'), 'invalid-input': !formulario.controls['plugType'].valid && formulario.controls['plugType'].touched }"
+                            (click)="selectPlugType('motor-assesment')">Ficha de avaliação motora</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="button" class="radio-button"
+                            [ngClass]="{ 'selected': selectedPlugType('cardiopulmonary-assessment'), 'invalid-input': !formulario.controls['plugType'].valid && formulario.controls['plugType'].touched }"
+                            (click)="selectPlugType('cardiopulmonary-assessment')">Ficha de avaliação
+                            cardiopulmonar</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <button type="button" class="radio-button" [ngClass]="{ 'selected': selectedPlugType('cardiopulmonary-assessment') }"
-                        (click)="selectPlugType('cardiopulmonary-assessment')">Ficha de avaliação cardiopulmonar</button>
+            <div class="row token-form">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="button" class="radio-button"
+                            [ngClass]="{ 'selected': selectedPlugType('sem1'), 'invalid-input': !formulario.controls['plugType'].valid && formulario.controls['plugType'].touched }"
+                            (click)="selectPlugType('sem1')">Rolandmorris</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row token-form">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <button type="button" class="radio-button" [ngClass]="{ 'selected': selectedPlugType('sem1') }"
-                        (click)="selectPlugType('sem1')">Rolandmorris</button>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>

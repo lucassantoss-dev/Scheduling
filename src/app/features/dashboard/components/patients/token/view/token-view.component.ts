@@ -34,10 +34,9 @@ export class TokenViewComponent implements OnInit {
 
 	createToken(): void {
 		console.log('entrou aqui?')
-		// this.router.navigate(['/dashboard/patients/create-token'])
 		const dialogRef = this.dialog.open(TokenModalComponent, {
 			width: '1200px',
-			height: '360px'
+			height: '385px'
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
