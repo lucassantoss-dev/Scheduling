@@ -59,15 +59,22 @@ export class TokenModalComponent implements OnInit {
 	}
 
 	onCreateClick(): void {
-		const formvalue = Object.assign({}, this.formulario.getRawValue());
-		console.log('formvalue', formvalue);
-		const url = `/dashboard/patients/create-token/${formvalue.plugType}`
-		this.router.navigate([url])
-		this.dialogRef.close();
-		if (this.formulario.valid) {
-			if (this.data && this.data.id) {
-			} else {
+		if(this.formulario.valid) {
+			const formvalue = Object.assign({}, this.formulario.getRawValue());
+			console.log('formvalue', formvalue);
+			const url = `/dashboard/patients/create-token/${formvalue.plugType}`
+			this.router.navigate([url])
+			this.dialogRef.close();
+			if (this.formulario.valid) {
+				if (this.data && this.data.id) {
+				} else {
+				}
 			}
+		} else {
+			Object.keys(this.formulario.controls).forEach(field => {
+				const control = this.formulario.get(field);
+				control?.markAsTouched({ onlySelf: true });
+			});
 		}
 	}
 
@@ -94,7 +101,14 @@ export class TokenModalComponent implements OnInit {
 	}
 
 	nextStep() {
-		this.showFirstScreen = false;
+		if (this.formulario.controls['medicalRequirement'].valid && this.formulario.controls['client'].valid && this.formulario.controls['professional'].valid) {
+			this.showFirstScreen = false;
+		} else {
+			Object.keys(this.formulario.controls).forEach(field => {
+				const control = this.formulario.get(field);
+				control?.markAsTouched({ onlySelf: true });
+			});
+		}
 	}
 
 	backStep() {
