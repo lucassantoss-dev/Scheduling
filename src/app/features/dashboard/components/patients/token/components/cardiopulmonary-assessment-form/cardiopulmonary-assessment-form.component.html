@@ -186,7 +186,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
+                    <div class="form-group secretion">
                         <span>Aspecto da secreção: </span>
                         <textarea class="form-control" formControlName="secretion" id="secretion"></textarea>
                     </div>
@@ -194,7 +194,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group">
+                    <div class="form-group lung_auscultation">
                         <mat-radio-group class="radio" formControlNama="lung_auscultation">
                             <label class="radio-label">Ausculta pulmonar: </label>
                             <mat-radio-button class="radio-button" value="mvf">MVF s/RA</mat-radio-button>
@@ -204,7 +204,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group">
+                    <div class="form-group obs">
                         <span>OBS: </span>
                         <textarea class="form-control" formControlName="obs" id="obs"></textarea>
                     </div>
@@ -249,6 +249,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <mat-radio-group class="radio" formControlName="breathing_rhythm">
+                            <label class="radio-label">Ritmo Ventilatório: </label>
+                            <mat-radio-button class="radio-button" value="regular">Regular</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="irregular">Irregular</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label class="select-label">Padrão muscular ventilatório: </label>
                         <div class="select-container">
                             <select class="form-control select" formControlName="chest_shape" id="chest_shape">
@@ -265,21 +274,85 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <mat-radio-group class="radio" formControlName="breathing_rhythm">
-                            <label class="radio-label">Ritmo Ventilatório: </label>
-                            <mat-radio-button class="radio-button" value="regular">Regular</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="irregular">Irregular</mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
                         <span class="cardiopulmonary-span">Musculatura Acessória: </span>
                         <div class="pa">
                             <span>Grau-</span>
                             <input type="text" class="form-control" formControlName="f" id="f" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <span class="cardiopulmonary-span">Abdome: </span>
+                        <div class="abdome">
+                            <input type="text" class="form-control" formControlName="f" id="f" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Sinais: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="chest_shape" id="chest_shape">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Tiragem</option>
+                                <option value="2">Batimento da Asa do Nariz</option>
+                                <option value="3">Cianose</option>
+                                <option value="4">Outros</option>
+                            </select>
+                            <input type="text" *ngIf="others" class="form-control" style="margin-top: 5px;"
+                                formControlName="others" id="others" placeholder="Outros: " />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Sintomas: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="ventilationType" id="ventilationType">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Dispnéia</option>
+                                <option value="2">Tontura</option>
+                                <option value="3">Dor</option>
+                                <option value="4">Outros</option>
+                            </select>
+                            <input type="text" *ngIf="oxygenTherapy" class="form-control" style="margin-top: 5px;"
+                                formControlName="oxygenTherapy" id="oxygenTherapy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="palpation-title">
+                <h3>Palpação:</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Mobilidade Torácica: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="chest_shape" id="chest_shape">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Preservada</option>
+                                <option value="2">Diminuída</option>
+                            </select>
+                            <input type="text" *ngIf="others" class="form-control" style="margin-top: 5px;"
+                                formControlName="others" id="others" placeholder="Outros: " />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Expansibilidade Pulmonar: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="ventilationType" id="ventilationType">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Preservada</option>
+                                <option value="2">Diminuída</option>
+                            </select>
+                            <input type="text" *ngIf="oxygenTherapy" class="form-control" style="margin-top: 5px;"
+                                formControlName="oxygenTherapy" id="oxygenTherapy" />
                         </div>
                     </div>
                 </div>

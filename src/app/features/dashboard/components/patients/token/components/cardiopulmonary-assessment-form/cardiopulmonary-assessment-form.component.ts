@@ -8,8 +8,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CardiopulmonaryAssessmentFormComponent implements OnInit {
 	public formulario!: FormGroup;
-	public firstScreen: boolean = false;
-	public others: boolean = false;
+	public firstScreen: boolean = true;
+	public others: boolean = true;
 	public oxygenTherapy: boolean = false;
 	constructor(
 		private formBuilder: FormBuilder,

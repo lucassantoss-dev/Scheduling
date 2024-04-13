@@ -38,9 +38,34 @@
 }
 
 .pa {
+    width: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.abdome input {
+    width: 50%;
+}
+
+.obs textarea {
+    height: 80px;
+}
+
+.secretion textarea {
+    height: 80px;
+}
+
+.lung_auscultation {
+    margin-bottom: -12px;
+}
+
+.palpation-title {
+    margin-top: 10px;
+}
+
+.palpation-title h3 {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .vital-data {
