@@ -45,7 +45,7 @@
                 <div class="col-md-6">
                     <div class="form-group buttons">
                         <button type="button" class="radio-button"
-                            [ngClass]="{ 'selected': isMedicalRequirementSelected('com') }"
+                            [ngClass]="{ 'selected': isMedicalRequirementSelected('com'), 'invalid-input': !formulario.controls['medicalRequirement'].valid && formulario.controls['medicalRequirement'].touched }"
                             (click)="selectMedicalRequirement('com')">Com requisição médica</button>
                     </div>
                     <div class="button-attachment" *ngIf="showButton">
@@ -57,7 +57,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <button type="button" class="radio-button"
-                            [ngClass]="{ 'selected': isMedicalRequirementSelected('sem') }"
+                            [ngClass]="{ 'selected': isMedicalRequirementSelected('sem'), 'invalid-input': !formulario.controls['medicalRequirement'].valid && formulario.controls['medicalRequirement'].touched }"
                             (click)="selectMedicalRequirement('sem')">Sem requisição médica</button>
                     </div>
                 </div>

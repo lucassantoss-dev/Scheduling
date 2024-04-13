@@ -8,7 +8,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CardiopulmonaryAssessmentFormComponent implements OnInit {
 	public formulario!: FormGroup;
-	public firstScreen: boolean = false;
+	public firstScreen: boolean = true;
+	public others: boolean = true;
+	public oxygenTherapy: boolean = false;
 	constructor(
 		private formBuilder: FormBuilder,
 	) {
@@ -55,6 +57,10 @@ export class CardiopulmonaryAssessmentFormComponent implements OnInit {
 			cough_second: new FormControl({ value: '', disabled: false }, [Validators.required]),
 			lung_auscultation: new FormControl({ value: '', disabled: false }, [Validators.required]),
 			obs: new FormControl({ value: '', disabled: false }, [Validators.required]),
+			chest_shape: new FormControl({ value: '', disabled: false }, [Validators.required]),
+			others: new FormControl({ value: '', disabled: false }, [Validators.required]),
+			oxygenTherapy: new FormControl({ value: '', disabled: false }, [Validators.required]),
+			ventilationType: new FormControl({ value: '', disabled: false }, [Validators.required]),
 		});
 	}
 }
