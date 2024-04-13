@@ -92,7 +92,7 @@
 }
 
 .button-back {
-    background-color: rgb(143, 125, 125);
+    background-color: rgb(53, 53, 53);
     color: aliceblue;
     font-size: 16px;
     margin-right: 10px;
@@ -129,6 +129,25 @@
             margin-right: 10px;
         }
     }
+}
+
+.select {
+    width: 50%;
+}
+
+.select-container {
+    display: flex;
+}
+
+.select-container input {
+    margin-left: 5px;
+    width: 50%;
+}
+
+.select-label {
+    margin-left: 3px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {

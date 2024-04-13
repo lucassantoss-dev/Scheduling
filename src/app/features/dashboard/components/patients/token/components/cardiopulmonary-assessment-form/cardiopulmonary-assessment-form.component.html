@@ -126,7 +126,8 @@
                             <label class="radio-label">Padrão respiratório: </label>
                             <mat-radio-button class="radio-button" value="apical">Apical ou torácico</mat-radio-button>
                             <mat-radio-button class="radio-button" value="abdominal">Abdominal</mat-radio-button>
-                            <mat-radio-button class="radio-button" value="thoraco-abdominal">Tóraco-abdominal</mat-radio-button>
+                            <mat-radio-button class="radio-button"
+                                value="thoraco-abdominal">Tóraco-abdominal</mat-radio-button>
                         </mat-radio-group>
                     </div>
                 </div>
@@ -147,7 +148,8 @@
                 <div class="col-md-6">
                     <span class="cardiopulmonary-span">Relação inspiração/expiração: </span>
                     <div class="pa">
-                        <input type="text" class="form-control" formControlName="inspiration_exhalation" id="inspiration_exhalation" />
+                        <input type="text" class="form-control" formControlName="inspiration_exhalation"
+                            id="inspiration_exhalation" />
                     </div>
                 </div>
             </div>
@@ -208,6 +210,80 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Formato Tórax: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="chest_shape" id="chest_shape">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Normal</option>
+                                <option value="2">Tonel</option>
+                                <option value="3">Carinatum</option>
+                                <option value="4">Scavatum</option>
+                                <option value="5">Sinus</option>
+                                <option value="6">Outros</option>
+                            </select>
+                            <input type="text" *ngIf="others" class="form-control" style="margin-top: 5px;"
+                                formControlName="others" id="others" placeholder="Outros: " />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Tipo de ventilação: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="ventilationType" id="ventilationType">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Nasal</option>
+                                <option value="2">Oral</option>
+                                <option value="3">Ar ambiente</option>
+                                <option value="4">Oxigenoterapia</option>
+                            </select>
+                            <input type="text" *ngIf="oxygenTherapy" class="form-control" style="margin-top: 5px;"
+                                formControlName="oxygenTherapy" id="oxygenTherapy" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="select-label">Padrão muscular ventilatório: </label>
+                        <div class="select-container">
+                            <select class="form-control select" formControlName="chest_shape" id="chest_shape">
+                                <option value="">Selecione um tipo</option>
+                                <option value="1">Apical</option>
+                                <option value="2">Diafragmático</option>
+                                <option value="3">Misto</option>
+                                <option value="4">Paradoxal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <mat-radio-group class="radio" formControlName="breathing_rhythm">
+                            <label class="radio-label">Ritmo Ventilatório: </label>
+                            <mat-radio-button class="radio-button" value="regular">Regular</mat-radio-button>
+                            <mat-radio-button class="radio-button" value="irregular">Irregular</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <span class="cardiopulmonary-span">Musculatura Acessória: </span>
+                        <div class="pa">
+                            <span>Grau-</span>
+                            <input type="text" class="form-control" formControlName="f" id="f" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
     <footer class="esp-top-20">
@@ -221,7 +297,8 @@
                         <button mat-button (click)="backStep()" class="button-back">Voltar</button>
                     </div>
                     <div *ngIf="!firstScreen">
-                        <button mat-raised-button class="button-add" (click)="createAssessment()"><mat-icon>person_add</mat-icon>Criar avaliação</button>
+                        <button mat-raised-button class="button-add"
+                            (click)="createAssessment()"><mat-icon>person_add</mat-icon>Criar avaliação</button>
                     </div>
                 </div>
             </mat-card-content>
