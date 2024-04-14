@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, map } from 'rxjs';
+import { LocalStorageService } from '../../../../core/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +16,7 @@ export class LayoutComponent {
       map((result: BreakpointState) => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private localStorage: LocalStorageService, private router: Router) {}
   opened: boolean = true;
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
@@ -38,5 +40,10 @@ export class LayoutComponent {
     if (!this.isExpanded) {
       this.isShowing = false;
     }
+  }
+
+  getOut(): void {
+    this.localStorage.clear();
+    this.router.navigate(['/'])
   }
 }
