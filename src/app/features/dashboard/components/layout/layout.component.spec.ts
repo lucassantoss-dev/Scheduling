@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../../../../shared/shared.module';
+import { MaterialModule } from '../../../../material-module';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -8,7 +13,14 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      declarations: [LayoutComponent],
+			imports: [
+				HttpClientTestingModule,
+				RouterTestingModule,
+        BrowserAnimationsModule,
+				SharedModule,
+				MaterialModule
+			],
     })
     .compileComponents();
     

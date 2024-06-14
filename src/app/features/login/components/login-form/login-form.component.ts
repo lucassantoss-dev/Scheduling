@@ -4,6 +4,7 @@ import { LoginService } from '../../../../core/login.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../../../core/local-storage.service';
 import { LoginApiInterface } from '../../../../domain/model/login/login-api-itnerface';
+import { AlertService } from '../../../../core/alert.service';
 
 @Component({
 	selector: 'app-login-form',
@@ -20,7 +21,8 @@ export class LoginFormComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private loginService: LoginService,
 		private localStorage: LocalStorageService,
-		private router: Router
+		private router: Router,
+		private alertService: AlertService
 	) { }
 
 	ngOnInit(): void {
@@ -31,13 +33,13 @@ export class LoginFormComponent implements OnInit {
 			const formvalue = Object.assign({}, this.form.getRawValue());
 			this.loginService.login(formvalue).subscribe({
 				next: (token: LoginApiInterface) => {
-					console.log('realizou login!', token.data);
 					this.localStorage.setItem('token', token.data as unknown as string);
 					this.localStorage.setItem('user', formvalue.email)
 					const url = `/dashboard`;
 					this.router.navigate([url]).then((res: boolean) => res).catch((error) => console.error(error));
+					this.alertService.success('success', 'Login realizado com sucesso!')
 				}, error: (error: Error) => {
-					console.error('Ocorreu um erro ao realizar login', error);
+					this.alertService.error('Erro', 'Erro ao fazer login, verifique o email ou a senha!');
 				}
 			})
 		}

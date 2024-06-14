@@ -1,0 +1,88 @@
+html,
+body {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.site-heading {
+    margin-top: 20px;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.site-heading .site-heading-upper {
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-top: 20px;
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #F6E1C5;
+}
+
+.site-heading .site-heading-lower {
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-top: 20px;
+    font-size: 4rem;
+    font-weight: 100;
+    line-height: 4rem;
+    color: #F6E1C5;
+}
+
+body {
+    background-image: linear-gradient(rgba(5, 5, 5, 0.65), rgba(19, 9, 6, 0.65)), url("../../../../../assets/bg1.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.page-section .clearfix {
+    margin-bottom: 0;
+}
+
+.page-section .clearfix {
+    margin-bottom: 2rem;
+}
+
+.page-section .cta {
+    margin-top: 2rem;
+}
+
+.page-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+#mainNav {
+    background-color: rgba(47, 23, 15, 0.9);
+    font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#mainNav .navbar-brand {
+    color: #e6a756;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 800;
+}
+
+#mainNav .navbar-nav .nav-item.active .nav-link {
+    color: #e6a756;
+}
+
+@media (min-width: 992px) {
+    #mainNav .navbar-nav .nav-item .nav-link {
+        font-size: 0.9rem;
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link:hover {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    #mainNav .navbar-nav .nav-item.active .nav-link:hover {
+        color: #e6a756;
+    }
+}

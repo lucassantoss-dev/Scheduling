@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MotorAssessmentFormComponent } from './motor-assessment-form.component';
+import { MaterialModule } from '../../../../../../../material-module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../../../../../../shared/shared.module';
+import { LoginFormComponent } from '../../../../../../login/components/login-form/login-form.component';
+import { ConfirmationModalComponent } from '../../../../../../../shared/modal/confirmation-modal/confirmation-modal.component';
 
 describe('MotorAssessmentFormComponent', () => {
   let component: MotorAssessmentFormComponent;
@@ -8,7 +13,12 @@ describe('MotorAssessmentFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MotorAssessmentFormComponent]
+      declarations: [MotorAssessmentFormComponent],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule,
+        SharedModule
+      ]
     })
     .compileComponents();
     

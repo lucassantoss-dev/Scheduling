@@ -8,6 +8,8 @@ import { CategoryApiInterface } from '../../../../../../domain/model/category/ca
 import { CategoryInterface } from '../../../../../../domain/model/category/category-interface';
 import { CategoryFormComponent } from '../form/category-form.component';
 import { ConfirmationModalComponent } from '../../../../../../shared/modal/confirmation-modal/confirmation-modal.component';
+import { AlertService } from '../../../../../../core/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-category-view',
@@ -23,7 +25,9 @@ export class CategoryViewComponent implements OnInit {
 
 	constructor(
 		public dialog: MatDialog,
-		private categoryService: CategoryService
+		private categoryService: CategoryService,
+		private alertService: AlertService,
+		private router: Router
 	) {
 	}
 
@@ -44,6 +48,13 @@ export class CategoryViewComponent implements OnInit {
 					this.dataSource = new MatTableDataSource<CategoryInterface>(category.data);
 					this.loading = false;
 				}, 600);
+			}, error: () => {
+				this.loading = false;
+				this.alertService.error('Erro', 'Por favor, faça login novamente!');
+				setTimeout(() => {
+					const url = '/login';
+					this.router.navigate([url]);
+				}, 1000);
 			}
 		})
 	}
@@ -67,7 +78,9 @@ export class CategoryViewComponent implements OnInit {
 		});
 
 		dialogRef.afterClosed().subscribe(result => {
-			this.getAllCategories();
+			setTimeout(() => {
+				this.getAllCategories();
+			}, 500);
 		});
 	}
 
@@ -83,7 +96,7 @@ export class CategoryViewComponent implements OnInit {
 					next: () => {
 						this.getAllCategories();
 					}, error: (err: Error) => {
-						console.error('error', err.message);
+						this.alertService.error('erro', 'Ocorreu um erro ao deletar!')
 					}
 				})
 			}

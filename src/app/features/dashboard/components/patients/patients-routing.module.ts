@@ -9,6 +9,7 @@ import { TokenFormComponent } from './token/form/token-form.component';
 import { MotorAssessmentFormComponent } from './token/components/motor-assessment-form/motor-assessment-form.component';
 import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
 import { PatientDetailComponent } from './patient/detail/patient-detail.component';
+import { SchedulingViewComponent } from '../../../../shared/scheduling/view/scheduling-view.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategoryViewComponent
+  },
+  {
+    path: 'schedule',
+    component: SchedulingViewComponent
   }
 ];
 

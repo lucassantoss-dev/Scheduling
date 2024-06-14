@@ -4,6 +4,7 @@ import { CategoryInterface } from '../../../../../../domain/model/category/categ
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategoryService } from '../../../../../../core/category.service';
 import { CategoryObjectApiInterface } from '../../../../../../domain/model/category/category-object-api-interface';
+import { AlertService } from '../../../../../../core/alert.service';
 
 @Component({
 	selector: 'app-category-form',
@@ -19,6 +20,7 @@ export class CategoryFormComponent implements OnInit {
 		public dialogRef: MatDialogRef<CategoryFormComponent>,
 		private formBuilder: FormBuilder,
 		private categoryService: CategoryService,
+		private alertService: AlertService,
 		@Inject(MAT_DIALOG_DATA) public data: { id?: string, category?: CategoryInterface }
 	) {
 
@@ -37,9 +39,9 @@ export class CategoryFormComponent implements OnInit {
 	getCategoryById(id: string): void {
 		this.categoryService.getCategoryById(id).subscribe({
 			next: (category: CategoryObjectApiInterface) => {
-				console.log('category', category);
-			}, error: (error: Error) => {
-				console.error('erro', error);
+				
+			}, error: () => {
+				this.alertService.error('erro', 'Ocorreu um erro ao visualizar por id!')
 			}
 		});
 	}
@@ -63,10 +65,12 @@ export class CategoryFormComponent implements OnInit {
 			const formvalue = Object.assign({}, this.formulario.getRawValue());
 			this.categoryService.editCategory(id, formvalue).subscribe({
 				next: () => {
-					console.log('editado com sucesso!');
-					this.dialogRef.close();
-				}, error: (error: Error) => {
-					console.error('Ocorreu um erro!', error.message);
+					this.alertService.success('Sucesso', 'Categoria editada com sucesso!');
+					setTimeout(() => {
+						this.dialogRef.close();
+					}, 500);
+				}, error: () => {
+					this.alertService.error('erro', 'Ocorreu um erro ao editar!')
 				}
 			})
 		}
@@ -77,10 +81,12 @@ export class CategoryFormComponent implements OnInit {
 			const formvalue = Object.assign({}, this.formulario.getRawValue());
 			this.categoryService.createCategory(formvalue).subscribe({
 				next: () => {
-					console.log('criado com sucesso!');
-					this.dialogRef.close();
-				}, error: (error: Error) => {
-					console.error('Ocorreu um erro!', error.message);
+					this.alertService.success('Sucesso', 'Categoria criada com sucesso!');
+					setTimeout(() => {
+						this.dialogRef.close();
+					}, 500);
+				}, error: () => {
+					this.alertService.error('erro', 'Ocorreu um erro ao criar!')
 				}
 			})
 		}
