@@ -1,0 +1,80 @@
+<div class="container-scheduling" style="overflow: hidden;">
+    <div class="title">
+        <h3>Agendamentos da semana</h3>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filters">
+        <mat-form-field appearance="fill">
+            <mat-label>Dia da Semana</mat-label>
+            <mat-select [(ngModel)]="filters.dayOfWeek" (selectionChange)="applyFilters()">
+                <mat-option value="">Todos</mat-option>
+                <mat-option *ngFor="let day of daysOfWeek; index as i" [value]="i">{{ day }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-left: 10px;">
+            <mat-label>Nome do Paciente</mat-label>
+            <input matInput [(ngModel)]="filters.patientName" placeholder="Nome do paciente"
+                (ngModelChange)="applyFilters()">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="margin-left: 10px;">
+            <mat-label>Data Específica</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="filters.specificDate" (dateChange)="applyFilters()">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="content-scheduling">
+        <div *ngFor="let day of daysOfWeek; index as i" style="margin-top: 20px;">
+            <div class="day-title">{{ day }}</div>
+            <div *ngIf="filteredSchedules[i] && filteredSchedules[i].length; else noSchedule">
+                <div class="row">
+                    <div class="col-md-3 schedule-list" *ngFor="let schedule of filteredSchedules[i]">
+                        <mat-card style="margin-top: 20px;">
+                            <mat-card-content class="schedule-list-content">
+                                <div class="row">
+                                    <div class="col-md-12 schedule-patient">
+                                        <span class="patient">{{ schedule.patient }}</span>
+                                    </div>
+                                </div>
+                                <div class="row more-informations">
+                                    <div class="col-md-12 schedule-informations">
+                                        <p class="schedule-date">Data e hora:</p>
+                                        <div style="display: flex; flex-direction: row;">
+                                            <span style="margin-right: 5px;">{{ schedule.date }}</span>
+                                            <span>{{ schedule.hour }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row more-informations">
+                                    <div class="col-md-12 schedule-informations">
+                                        <p class="schedule-subcategory">Subcategoria:</p>
+                                        <span>{{ schedule.subcategory }}</span>
+                                    </div>
+                                </div>
+                                <div class="row more-informations">
+                                    <div class="col-md-12 schedule-informations">
+                                        <p class="schedule-physio">Responsável:</p>
+                                        <span>{{ schedule.physiotherapist }}</span>
+                                    </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noSchedule>
+                <div class="card">
+                    <mat-card>
+                        <mat-card-content>
+                            <p>Sem agendamentos para essa data!</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

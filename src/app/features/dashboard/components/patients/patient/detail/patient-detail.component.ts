@@ -23,10 +23,10 @@ export class PatientDetailComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.route.params.subscribe(params => {
-			this.id = params["id"];
+		this.id = this.route.snapshot.params['id'];
+		if(this.id != undefined) {
 			this.getPacientById(this.id);
-		})
+		}
 	}
 
 	getPacientById(id: string): void {

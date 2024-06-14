@@ -9,6 +9,7 @@ import { PatientInterface } from '../../../../../../domain/model/patient/patient
 import { PatientFormComponent } from '../form/patient-form.component';
 import { ConfirmationModalComponent } from '../../../../../../shared/modal/confirmation-modal/confirmation-modal.component';
 import { Router } from '@angular/router';
+import { AlertService } from '../../../../../../core/alert.service';
 
 @Component({
   selector: 'app-patient-view',
@@ -25,7 +26,8 @@ export class PatientViewComponent implements OnInit {
 	constructor(
 		public dialog: MatDialog,
 		private patientService: PatientService,
-		private router: Router
+		private router: Router,
+		private alertService: AlertService
 	) {
 	}
 
@@ -45,8 +47,14 @@ export class PatientViewComponent implements OnInit {
 				setTimeout(() => {
 					this.loading = false;
 					this.dataSource = new MatTableDataSource<PatientInterface>(patient.data);
-					console.log('data', patient.data);
 				}, 700)
+			}, error: () => {
+				this.loading = false;
+				this.alertService.error('Erro', 'Por favor, faça login novamente!');
+				setTimeout(() => {
+					const url = '/login';
+					this.router.navigate([url]);
+				}, 1000);
 			}
 		})
 	}
