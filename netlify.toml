@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist/consultorio"
+
+[build.environment]
+  NODE_ENV = "production"
+
+[build.processing]
+  skip_processing = true
