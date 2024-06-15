@@ -1,9 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "dist/front-project"
 
 [build.environment]
   NODE_ENV = "production"
+  NODE_VERSION = "20.12.2"
 
 [build.processing]
   skip_processing = true
