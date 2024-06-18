@@ -11,6 +11,24 @@ body {
     overflow-y: auto;
 }
 
+@media (min-width: 400px) and (max-width: 991px) {
+    .about-heading .about-heading-img {
+        position: relative;
+        z-index: 0;
+    }
+
+    .about-heading .about-heading-content {
+        margin-top: -35rem;
+        position: relative;
+    }
+
+    .bg-faded {
+        margin-right: 1px;
+        width: 100%;
+        background-color: #f6e1c5;
+    }
+}
+
 @media (min-width: 992px) {
     .about-heading .about-heading-img {
         position: relative;
@@ -21,6 +39,7 @@ body {
         margin-top: -5rem;
         position: relative;
         z-index: 1;
+        width: 100%;
     }
 }
 

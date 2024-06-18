@@ -23,14 +23,14 @@ body {
 .section-heading .section-heading-upper {
     font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     display: block;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
 }
 
 .section-heading .section-heading-lower {
     font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 100;
 }
 
@@ -55,11 +55,32 @@ body {
 }
 
 .product-item img {
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 550px;
 }
 
-@media (min-width: 992px) {
+.product-item .product-item-description {
+    position: relative;
+    z-index: 1;
+    margin-top: -3rem;
+    max-width: 40vw;
+}
+
+.product-item .product-item-img {
+    position: relative;
+    z-index: 0;
+    max-width: 70vw;
+    margin-bottom: 20px;
+}
+
+.product-item .product-item-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -3rem;
+    margin-right: 4rem;
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
     .product-item .product-item-title {
         position: relative;
         z-index: 1;
@@ -69,7 +90,7 @@ body {
     .product-item .product-item-img {
         position: relative;
         z-index: 0;
-        max-width: 60vw;
+        max-width: 50vw;
     }
 
     .product-item .product-item-description {
@@ -77,5 +98,27 @@ body {
         z-index: 1;
         margin-top: -3rem;
         max-width: 50vw;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 991px) {
+    .product-item .product-item-title {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0;
+    }
+
+    .product-item .product-item-img {
+        position: relative;
+        z-index: 0;
+        max-width: 75vw;
+        height: 100vw;
+    }
+
+    .product-item .product-item-description {
+        position: relative;
+        z-index: 1;
+        margin-top: -3rem;
+        max-width: 85vw;
     }
 }
