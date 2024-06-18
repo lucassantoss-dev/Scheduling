@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
-    urlBackEnd: "http://localhost:3500"
+    production: true,
+    urlBackEnd: "https://physio-sync-api.onrender.com"
   };
   
   /*
