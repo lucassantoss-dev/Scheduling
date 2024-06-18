@@ -3,3 +3,7 @@
     color: aliceblue;
     background-color: rgba(47, 23, 15, 0.9);
 }
+
+.mat-icon-whatsapp::before {
+    content: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+}
