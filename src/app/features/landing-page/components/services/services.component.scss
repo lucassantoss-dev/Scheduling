@@ -122,3 +122,34 @@ body {
         max-width: 85vw;
     }
 }
+
+@media (min-width: 260px) and (max-width: 399px) {
+    .product-item .product-item-title {
+        position: relative;
+        z-index: 2;
+        right: 20px;
+        margin-bottom: 0;
+    }
+
+    .section-heading .section-heading-upper {
+        font-size: 1.3rem;
+    }
+    
+    .section-heading .section-heading-lower {
+        font-size: 1.5rem;
+    }
+
+    .product-item .product-item-img {
+        position: relative;
+        z-index: 0;
+        max-width: 75vw;
+        height: 100vw;
+    }
+
+    .product-item .product-item-description {
+        position: relative;
+        z-index: 1;
+        margin-top: -3rem;
+        max-width: 85vw;
+    }
+}

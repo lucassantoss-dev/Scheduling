@@ -131,6 +131,69 @@ body {
     background-color: #E6A756;
 }
 
+@media (min-width: 260px) and (max-width: 401px) {
+    .intro .intro-img {
+        display: none;
+    }
+
+    .intro .intro-text {
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro .intro-text h2 {
+        margin-bottom: 1rem;
+    }
+
+    .intro .intro-text p {
+        margin-bottom: 1rem;
+    }
+
+    .intro .intro-text .intro-button {
+        width: 100%;
+        left: 0;
+        position: relative;
+        margin-top: 2rem;
+        bottom: auto;
+    }
+}
+
+@media (min-width: 402px) and (max-width: 991px) {
+    .intro .intro-img {
+        display: none;
+    }
+
+    .intro .intro-text {
+        left: 0;
+        width: 100%;
+        margin-top: 3rem;
+        position: relative;
+        margin-bottom: 2rem;
+        z-index: 2;
+    }
+
+    .intro .intro-text h2 {
+        margin-bottom: 1rem;
+    }
+
+    .intro .intro-text p {
+        margin-bottom: 1rem;
+    }
+
+    .intro .intro-text .intro-button {
+        width: 100%;
+        left: 0;
+        position: relative;
+        margin-top: 2rem;
+        bottom: auto;
+    }
+}
+
 @media (min-width: 992px) {
     .intro .intro-img {
         width: 75%;
