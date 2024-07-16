@@ -33,7 +33,6 @@ export class TokenViewComponent implements OnInit {
 	}
 
 	createToken(): void {
-		console.log('entrou aqui?')
 		const dialogRef = this.dialog.open(TokenModalComponent, {
 			width: '1200px',
 			height: '385px'
@@ -48,6 +47,6 @@ export class TokenViewComponent implements OnInit {
 	}
 
 	deleteToken(id: string): void {
-		
+
 	}
 }

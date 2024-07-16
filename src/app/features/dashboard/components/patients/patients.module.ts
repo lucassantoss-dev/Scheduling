@@ -15,6 +15,8 @@ import { MotorAssessmentFormComponent } from './token/components/motor-assessmen
 import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
 import { PatientDetailComponent } from './patient/detail/patient-detail.component';
 import { CategoryFormComponent } from './category/form/category-form.component';
+import { SubcategoryViewComponent } from './subcategory/view/subcategory-view.component';
+import { SubcategoryFormComponent } from './subcategory/form/subcategory-form.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CategoryFormComponent } from './category/form/category-form.component';
     MotorAssessmentFormComponent,
     CardiopulmonaryAssessmentFormComponent,
     PatientDetailComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    SubcategoryViewComponent,
+    SubcategoryFormComponent
   ],
   imports: [
     CommonModule,

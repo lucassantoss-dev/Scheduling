@@ -16,6 +16,10 @@ const routes: Routes = [
 				path: 'patients',
 				loadChildren: () => import('./components/patients/patients.module').then(m => m.PatientsModule)
 			},
+      {
+				path: 'schedule-hours',
+				loadChildren: () => import('./components/schedule/schedule.module').then(m => m.ScheduleModule)
+			},
 			{
 				path: '**',
 				redirectTo: 'home',

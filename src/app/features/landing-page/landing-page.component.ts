@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SchedulingFormComponent } from '../../shared/scheduling/scheduling-form/scheduling-form.component';
+import { ScheduleService } from '../../core/schedule.service';
 
 @Component({
 	selector: 'app-landing-page',
@@ -8,15 +9,16 @@ import { SchedulingFormComponent } from '../../shared/scheduling/scheduling-form
 	styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent implements OnInit {
-	
+
 	constructor(
-		public dialog: MatDialog
+		public dialog: MatDialog,
+    private scheduleService: ScheduleService
 	) {
 
 	}
 
 	ngOnInit(): void {
-		
+
 	}
 
 	createScheduling(): void {
@@ -27,7 +29,12 @@ export class LandingPageComponent implements OnInit {
 		})
 
 		dialogRef.afterClosed().subscribe(result => {
-			console.log('result', result);
+      this.scheduleService.patchHourInDate(result.date, result.hour).subscribe({
+        next: () => {
+        }, error: (error: Error) => {
+          console.error('erorr', error);
+        }
+      })
 		})
 	}
 }

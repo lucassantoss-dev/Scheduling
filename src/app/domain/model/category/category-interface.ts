@@ -1,6 +1,6 @@
 export interface CategoryInterface {
-    id: string,
-    name: string,
+    _id: string,
+    category_name: string,
     description: string,
     image: string
 }

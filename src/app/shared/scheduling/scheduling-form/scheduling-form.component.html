@@ -1,84 +1,104 @@
 <div class="scheduling-title">
-    <h2 mat-dialog-title>Criar reserva</h2>
+  <h2 mat-dialog-title>Criar reserva</h2>
 </div>
 <mat-dialog-content>
-    <form [formGroup]="formulario">
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <div class="select-container">
-                        <select class="form-control" formControlName="subcategory" id="subcategory">
-                            <option value="">Selecione uma especialidade</option>
-                            <option *ngFor="let subcategory of subcategories" [value]="subcategory._id">{{
-                                subcategory.subcategory_name }}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+  <form [formGroup]="formulario">
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="category" id="category" (change)="getSubcategoryByCategory()">
+              <option value="">Selecione uma especialidade</option>
+              <option *ngFor="let category of categories" [value]="category._id">
+                {{ category.category_name }}
+              </option>
+            </select>
+          </div>
         </div>
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <div class="select-container">
-                        <select class="form-control" formControlName="physiotherapist" id="physiotherapist">
-                            <option value="">Selecione um(a) especialista</option>
-                            <option *ngFor="let physio of physios" [value]="physio._id">{{ physio.name }}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;" *ngIf="categoryChanged">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="subcategory" id="subcategory">
+              <option value="">Selecione um serviço</option>
+              <option *ngFor="let subcategory of subcategories" [value]="subcategory._id">
+                {{ subcategory.subcategory_name }}
+              </option>
+            </select>
+          </div>
         </div>
-        <button mat-button color="primary" style="margin-bottom: 5px;" (click)="patientExistInDb()"
-            *ngIf="!patientNotExist">Já possuo cadastro</button>
-        <button mat-button color="primary" style="margin-bottom: 5px;" (click)="patientNotExistInDb()"
-            *ngIf="patientNotExist">Não possuo cadastro</button>
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-md-12" *ngIf="!patientExist">
-                <div class="form-group">
-                    <input type="text" class="form-control patient" formControlName="patient" id="patient"
-                        placeholder="Nome do paciente">
-                </div>
-            </div>
-            <div class="col-md-12" *ngIf="patientExist">
-                <div class="form-group">
-                    <div class="select-container">
-                        <select class="form-control" formControlName="patient" id="patient">
-                            <option value="">Selecione um paciente</option>
-                            <option *ngFor="let patient of patients" [value]="patient._id">{{ patient.name }}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="physiotherapist" id="physiotherapist">
+              <option value="">Selecione um(a) especialista</option>
+              <option *ngFor="let physio of physios" [value]="physio._id">{{ physio.name }}</option>
+            </select>
+          </div>
         </div>
-        <div class="row" style="margin-bottom: 15px;">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <input type="date" class="form-control date" formControlName="date" id="date" placeholder="Data">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <select class="form-control hour" formControlName="hour" id="hour">
-                        <option value="">Selecione uma hora</option>
-                        <option *ngFor="let hora of horasDisponiveis" [value]="hora">{{ hora }}</option>
-                    </select>
-                </div>
-            </div>
+      </div>
+    </div>
+    <button mat-button color="primary" style="margin-bottom: 5px;" (click)="patientExistInDb()"
+      *ngIf="!patientNotExist">Já possuo cadastro</button>
+    <button mat-button color="primary" style="margin-bottom: 5px;" (click)="patientNotExistInDb()"
+      *ngIf="patientNotExist">Não possuo cadastro</button>
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="col-md-12" *ngIf="!patientExist">
+        <div class="form-group">
+          <input type="text" class="form-control patient" formControlName="patient" id="patient"
+            placeholder="Nome do paciente">
         </div>
-        <button mat-button color="primary" style="margin-bottom: 5px;" (click)="onAdditionalInformations()"
-            *ngIf="!additionalObservations">Observações?</button>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group" *ngIf="additionalObservations">
-                    <span>Observações Adicionais: </span>
-                    <textarea class="form-control" formControlName="additionalObservations"
-                        id="additionalObservations"></textarea>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-12" *ngIf="patientExist">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="patient" id="patient">
+              <option value="">Selecione um paciente</option>
+              <option *ngFor="let patient of patients" [value]="patient._id">{{ patient.name }}</option>
+            </select>
+          </div>
         </div>
-    </form>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+      <div class="col-md-6 col-ms-12 mb-3">
+        <div class="form-group">
+          <input type="date" class="form-control date" formControlName="date" id="date" placeholder="Data" (change)="getAvailableTimes()">
+        </div>
+      </div>
+      <div class="col-md-6 col-ms-12">
+        <div class="form-group">
+          <select class="form-control hour" formControlName="hour" id="hour">
+            <option value="">Selecione uma hora</option>
+            <ng-container *ngIf="hoursByDate; else noHours">
+              <option *ngFor="let hora of horasDisponiveis" [value]="hora">{{ hora }}</option>
+            </ng-container>
+            <ng-template #noHours>
+              <option>Nenhum horário disponível</option>
+            </ng-template>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button mat-button color="primary" style="margin-bottom: 5px;" (click)="onAdditionalInformations()"
+      *ngIf="!additionalObservations">Observações?</button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group" *ngIf="additionalObservations">
+          <span>Observações Adicionais: </span>
+          <textarea class="form-control" formControlName="additionalObservations"
+            id="additionalObservations"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button (click)="onCancelClick()">Cancelar</button>
-    <button mat-button (click)="onCreateClick()">Criar</button>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-button (click)="onCreateClick()">Criar</button>
 </mat-dialog-actions>

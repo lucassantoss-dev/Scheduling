@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Criar nova subcategoria</h2>
+<mat-dialog-content>
+  <form [formGroup]='formulario'>
+    <div class="row category-form">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="category" id="category">
+              <option value="" selected>Selecione uma categoria</option>
+              <option *ngFor="let category of categories" [value]="category._id">{{ category.category_name }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="subcategory" id="subcategory"
+            placeholder="Subcategoria" />
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()"
+    [disabled]="formulario.invalid">Criar</button>
+  <button *ngIf="typeForm" mat-button color="primary" (click)="onCreateClick()"
+    [disabled]="formulario.invalid">Editar</button>
+</mat-dialog-actions>

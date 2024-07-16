@@ -10,6 +10,7 @@ import { MotorAssessmentFormComponent } from './token/components/motor-assessmen
 import { CardiopulmonaryAssessmentFormComponent } from './token/components/cardiopulmonary-assessment-form/cardiopulmonary-assessment-form.component';
 import { PatientDetailComponent } from './patient/detail/patient-detail.component';
 import { SchedulingViewComponent } from '../../../../shared/scheduling/view/scheduling-view.component';
+import { SubcategoryViewComponent } from './subcategory/view/subcategory-view.component';
 
 const routes: Routes = [
   {
@@ -51,7 +52,11 @@ const routes: Routes = [
   {
     path: 'schedule',
     component: SchedulingViewComponent
-  }
+  },
+  {
+    path: 'subcategory',
+    component: SubcategoryViewComponent
+  },
 ];
 
 @NgModule({

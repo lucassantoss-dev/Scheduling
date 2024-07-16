@@ -14,7 +14,7 @@ export class PatientDetailComponent implements OnInit {
 	public loading: boolean = false;
 	public id!: string;
 	public patient!: PatientInterface;
-	
+
 	constructor(
 		private route: ActivatedRoute,
 		private patientService: PatientService
@@ -36,7 +36,6 @@ export class PatientDetailComponent implements OnInit {
 				setTimeout(() => {
 					this.patient = patient.data;
 					this.loading = false;
-					console.log('patient', this.patient);
 				}, 500)
 			}
 		})
