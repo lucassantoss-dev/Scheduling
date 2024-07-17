@@ -37,7 +37,6 @@ export class TokenModalComponent implements OnInit {
 		this.patientService.getPatients().subscribe({
 			next: (patients: PatientApiInterface) => {
 				this.persons = patients.data;
-				console.log('patients', patients.data);
 			}, error: (error: Error) => {
 				console.error('error', error);
 			}
@@ -46,7 +45,6 @@ export class TokenModalComponent implements OnInit {
 
 	onFileSelected(event: any) {
 		const selectedFile = event.target.files[0];
-		console.log('Arquivo selecionado:', selectedFile);
 	}
 
 	triggerFileInput() {
@@ -61,7 +59,6 @@ export class TokenModalComponent implements OnInit {
 	onCreateClick(): void {
 		if(this.formulario.valid) {
 			const formvalue = Object.assign({}, this.formulario.getRawValue());
-			console.log('formvalue', formvalue);
 			const url = `/dashboard/patients/create-token/${formvalue.plugType}`
 			this.router.navigate([url])
 			this.dialogRef.close();

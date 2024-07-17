@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Criar nova hora de atendimento</h2>
+<mat-dialog-content>
+  <form [formGroup]="formulario">
+    <div class="row category-form">
+      <div class="col-md-6 col-ms-12 mb-2">
+        <div class="form-group">
+          <input type="date" class="form-control" formControlName="date" id="date" placeholder="Escolha a data" />
+        </div>
+      </div>
+
+      <div class="col-md-6 col-ms-12 mb-2">
+        <div class="form-group">
+          <div class="select-container">
+            <select class="form-control" formControlName="physiotherapist" id="physiotherapist">
+              <option value="" selected>Selecione um(a) especialista</option>
+              <option *ngFor="let physio of physios" [value]="physio._id">{{ physio.name }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" formArrayName="hour">
+      <div class="col-md-2 col-ms-12 mb-2" *ngFor="let hourCtrl of hour.controls; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <input type="time" class="form-control" formControlName="time" placeholder="Escolha as horas" />
+          <button type="button" class="btn btn-light rmHour" (click)="removeHour(i)">
+            <mat-icon>remove</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-1 col-ms-12 mb-2">
+        <div class="form-group">
+          <button type="button" class="btn btn-light addHour" (click)="addHour()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button *ngIf="!typeForm" mat-button color="primary" (click)="onCreateClick()"
+    [disabled]="formulario.invalid">Criar</button>
+  <button *ngIf="typeForm" mat-button color="primary" (click)="onCreateClick()" [disabled]="formulario.invalid">
+    Editar
+  </button>
+</mat-dialog-actions>

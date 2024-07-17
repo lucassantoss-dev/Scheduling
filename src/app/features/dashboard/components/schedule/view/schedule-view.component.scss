@@ -1,0 +1,57 @@
+.button-add {
+  background-color: #8B4513;
+  color: aliceblue;
+  font-size: 16px;
+}
+
+.search-input {
+  width: 127vh;
+  max-width: 100%;
+}
+
+.token-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.esp-top-20 {
+  position: fixed;
+  bottom: 0;
+  right: 2px;
+  width: 100%;
+  text-align: end;
+}
+
+.token-view {
+  padding: 12px;
+}
+
+.action-button {
+  display: flex;
+}
+
+.token-list-image {
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  height: 60px;
+  width: 60px;
+  border: 6px solid white;
+  border-color: #8B4513 transparent #8B4513 transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

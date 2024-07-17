@@ -20,8 +20,8 @@ export class CategoryService {
 	) { }
 
 	getAllCategories(): Observable<CategoryApiInterface> {
-		const url = `${this.urlBackEnd}/category`;
-		return this.authService.authGet<CategoryApiInterface>(url);
+    const url = `${this.urlBackEnd}/category`;
+		return this.http.get<CategoryApiInterface>(url);
 	}
 
 	getCategoryById(id: string): Observable<CategoryObjectApiInterface> {

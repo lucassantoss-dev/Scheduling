@@ -21,4 +21,9 @@ export class SubcategoryService {
 		const url = `${this.urlBackEnd}/subcategory/${id}`;
 		return this.http.get<SubcategoryObjectApiInterface>(url);
 	}
+
+  getSubcategoryByCategory(categoryId: string): Observable<SubcategoryApiInterface> {
+    const url = `${this.urlBackEnd}/subcategory/category/${categoryId}`;
+		return this.http.get<SubcategoryApiInterface>(url);
+  }
 }
